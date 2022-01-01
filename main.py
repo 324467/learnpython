@@ -1,16 +1,27 @@
-# 这是一个示例 Python 脚本。
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
 
-# 按 Shift+F10 执行或将其替换为您的代码。
-# 按 双击 Shift 在所有地方搜索类、文件、工具窗口、操作和设置。
+def mul(x,*y):
+    sum=x
+    for n in y:
+        sum = sum * n
+    return sum
 
-
-def print_hi(name):
-    # 在下面的代码行中使用断点来调试脚本。
-    print(f'Hi, {name}')  # 按 Ctrl+F8 切换断点。
-
-
-# 按间距中的绿色按钮以运行脚本。
-if __name__ == '__main__':
-    print_hi('PyCharm')
-
-# 访问 https://www.jetbrains.com/help/pycharm/ 获取 PyCharm 帮助
+print('mul(5) =', mul(5))
+print('mul(5, 6) =', mul(5, 6))
+print('mul(5, 6, 7) =', mul(5, 6, 7))
+print('mul(5, 6, 7, 9) =', mul(5, 6, 7, 9))
+if mul(5) != 5:
+    print('测试失败!')
+elif mul(5, 6) != 30:
+    print('测试失败!')
+elif mul(5, 6, 7) != 210:
+    print('测试失败!')
+elif mul(5, 6, 7, 9) != 1890:
+    print('测试失败!')
+else:
+    try:
+        mul()
+        print('测试失败!')
+    except TypeError:
+        print('测试成功!')
